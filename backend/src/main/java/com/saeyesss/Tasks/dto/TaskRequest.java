@@ -1,46 +1,37 @@
-package com.saeyesss.Tasks.entity;
+package com.saeyesss.Tasks.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.saeyesss.Tasks.enums.Priority;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "tasks")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Task {
+public class TaskRequest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotBlank(message = "Title cannot be blank")
+    @Size(max = 200, message = "Title must not exceed 200 characters")
     private String title;
 
-    @Column(length = 1000)
+    @Size(max = 500, message = "Description must not exceed 500 characters")
     private String description;
-    @NotNull
+
+    @NotNull(message = "Completed status is required")
     private Boolean completed;
 
+    @NotNull(message = "Priority is required")
     @Enumerated(EnumType.STRING)
     private Priority priority;
 
+    @FutureOrPresent(message = "Due date must be in the future or present")
     private LocalDateTime dueDate;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    @JsonIgnore
-    private User user;
-    
-
 
 }
