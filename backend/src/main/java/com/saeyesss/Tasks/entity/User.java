@@ -23,7 +23,7 @@ public class User {
     private Long id;
 
     @Column(unique = true, nullable = false)
-    private String userName;
+    private String username;
 
     @Column(nullable = false)
     @NotBlank(message = "Password is required")
