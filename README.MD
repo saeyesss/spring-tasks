@@ -4,7 +4,8 @@ This project is a full-stack task manager built using Spring Boot.
 
 **Project URL:** [http://spring-tasks-frontend.s3-website.eu-north-1.amazonaws.com](http://spring-tasks-frontend.s3-website.eu-north-1.amazonaws.com)
 
-Screenshots:
+Screenshot: 
+
 ![Screenshot](screenshot.png)
 
 ## Technologies Used
