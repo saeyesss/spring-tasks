@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default class ApiService {
-  static API_URL = 'http://localhost:3030';
+  static API_URL = 'http://localhost:3030/api';
 
   static saveToken(token) {
     localStorage.setItem('token', token);
@@ -52,62 +52,62 @@ export default class ApiService {
 
   // create task
   static async createTask(body) {
-    const resp = await axios.post(`${this.API_URL}/tasks`, body, {
+    const response = await axios.post(`${this.API_URL}/tasks`, body, {
       headers: this.getHeader()
     });
-    return resp.data;
+    return response.data;
   }
 
 
   static async updateTask(body) {
-    const resp = await axios.put(`${this.API_URL}/tasks`, body, {
+    const response = await axios.put(`${this.API_URL}/tasks`, body, {
       headers: this.getHeader()
     });
-    return resp.data;
+    return response.data;
   }
 
 
   static async getAllMyTasks() {
-    const resp = await axios.get(`${this.API_URL}/tasks`, {
+    const response = await axios.get(`${this.API_URL}/tasks`, {
       headers: this.getHeader(),
     });
-    return resp.data;
+    return response.data;
   }
 
 
   static async getTaskById(taskId) {
-    const resp = await axios.get(`${this.API_URL}/tasks/${taskId}`, {
+    const response = await axios.get(`${this.API_URL}/tasks/${taskId}`, {
       headers: this.getHeader()
     });
-    return resp.data;
+    return response.data;
   }
 
 
   static async deleteTask(taskId) {
-    const resp = await axios.delete(`${this.API_URL}/tasks/${taskId}`, {
+    const response = await axios.delete(`${this.API_URL}/tasks/${taskId}`, {
       headers: this.getHeader()
     });
-    return resp.data;
+    return response.data;
   }
 
 
   static async getMyTasksByCompletionStatus(completed) {
-    const resp = await axios.get(`${this.API_URL}/tasks/status`, {
+    const response = await axios.get(`${this.API_URL}/tasks/status`, {
       headers: this.getHeader(),
       params: {
         completed: completed
       }
     });
-    return resp.data;
+    return response.data;
   }
 
   static async getMyTasksByPriority(priority) {
-    const resp = await axios.get(`${this.API_URL}/tasks/priority`, {
+    const response = await axios.get(`${this.API_URL}/tasks/priority`, {
       headers: this.getHeader(),
       params: {
         priority: priority
       }
     });
-    return resp.data;
+    return response.data;
   }
 }
