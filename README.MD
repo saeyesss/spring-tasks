@@ -19,6 +19,6 @@ Screenshots:
     *   React
     *   JavaScript (ES6+)
 *   **Cloud Infrastructure (AWS):**
-    *   EC2 (Elastic Compute Cloud) - Backend Server
-    *   S3 (Simple Storage Service) - Frontend Hosting
-    *   RDS (Relational Database Service) - MySQL Database
+    *   EC2 - Backend Server
+    *   S3 - Frontend Hosting
+    *   RDS - MySQL Database
